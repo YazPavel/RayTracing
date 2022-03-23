@@ -1,0 +1,10 @@
+mstm_pos.dat
+1.59 dielectricRI 
+1.33 mediaRI
+660 wavelength_in_nm
+174 Lengtscale_in_nm(for_NP_put_radius)
+150 minimum_angle_for_backscattering
+180 maximum_angle_for_backscattering
+20 rotationN
+200 resolution
+181 angleN
