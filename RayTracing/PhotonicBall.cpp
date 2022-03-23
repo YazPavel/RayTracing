@@ -1,4 +1,3 @@
-#define _USE_MATH_DEFINES
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -16,6 +15,7 @@ using std::ifstream;
 using std::cout;
 using std::endl;
 using std::string;
+const double pi = 3.14159265358979323846;
 
 istream&  operator>>(istream& input, NanoParticle& NP) {
 		input >> NP.radius >> NP.coord(0) >> NP.coord(1) >> NP.coord(2);
@@ -146,7 +146,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		srand(time(0));
 		double u = (double)rand() / RAND_MAX;
 		double v = (double)rand() / RAND_MAX;
-		double theta_r = 2 * M_PI * u;
+		double theta_r = 2 * pi * u;
 		double phi_r = acos(2 * v - 1);
 		std::vector<double> ax1 = { 0, 0, 1 };
 		std::vector<double> ax2 = { 0, 1, 0 };
@@ -163,7 +163,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		srand(time(0));
 		double u = (double)rand() / RAND_MAX;
 		double v = (double)rand() / RAND_MAX;
-		double theta_r = 2 * M_PI * u;
+		double theta_r = 2 * pi * u;
 		double phi_r = acos(2 * v - 1);
 		std::vector<double> ax1 = { 0, 0, 1 };
 		std::vector<double> ax2 = { 0, 1, 0 };
@@ -178,7 +178,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		srand(time(0));
 		double u = (double)rand() / RAND_MAX;
 		double v = (double)rand() / RAND_MAX;
-		double theta_r = 2 * M_PI * u;
+		double theta_r = 2 * pi * u;
 		double phi_r = acos(2 * v - 1);
 		std::vector<double> ax1 = { 0, 0, 1 };
 		std::vector<double> ax2 = { 0, 1, 0 };
@@ -257,4 +257,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 	}
 	double PhotonicBall::GetPixelSize() const{
 		return delta;
+	}
+	double PhotonicBall::GetFeret_radius() const {
+		return radiusPB;
 	}

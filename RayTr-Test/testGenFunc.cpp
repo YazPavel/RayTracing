@@ -1,6 +1,8 @@
 #include "pch.h"
+
+#include "pch.h"
 #include "../RayTracing/GeneralFun.h"
-#include "../RayTracing/GeneralFun.cpp"
+
 
 
 void compare2vec(std::vector<double> vec1, std::vector<double> vec2) {
@@ -63,12 +65,12 @@ TEST(RotMatrix, Zero) {
 }
 
 TEST(RotMatrix, pi_2) {
-	double Pi = 3.141592653589793;
+	const double pi = 3.14159265358979323846;
 	Eigen::Matrix3d m1;
 	m1 << 0, -1, 0,
 		1, 0, 0,
 		0, 0, 1;
-	Eigen::Matrix3d m2 = GenFunc::rotationMatrix(Pi / 2, { 0,0,1 });
+	Eigen::Matrix3d m2 = GenFunc::rotationMatrix(pi / 2, { 0,0,1 });
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			EXPECT_NEAR(m1(i, j), m2(i, j), 1e-14);

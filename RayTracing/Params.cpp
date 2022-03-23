@@ -3,6 +3,7 @@
 
 
 	Params::Params() {
+		const double pi = 3.14159265358979323846;
 		std::ifstream input("parameters.txt");
 		std::string line;
 		if (input) {
@@ -17,10 +18,10 @@
 			input >> resolution >> line;
 			input >> angleN >> line;
 		}
-		wavevector_diel = 2 * M_PI / wavelength * np;
-		wavevector_med = 2 * M_PI / wavelength * nm;
-		scatangle = GenFunc::linspace(0, M_PI, angleN);
-		Rayleigh_prefactor = wavevector_med * wavevector_med / 4 / M_PI * (np*np / nm / nm - 1);
+		wavevector_diel = 2 * pi / wavelength * np;
+		wavevector_med = 2 * pi / wavelength * nm;
+		scatangle = GenFunc::linspace(0, pi, angleN);
+		Rayleigh_prefactor = wavevector_med * wavevector_med / 4 / pi * (np*np / nm / nm - 1);
 
 
 	}

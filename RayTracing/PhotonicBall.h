@@ -47,7 +47,8 @@ public:
 	PhotonicBall(const std::string& structure_file, const double& NPradius, const int& resolution_);
 	void random_rotation(const int& resolution_);
 	void random_rotation() override;
-	
+	double GetFeret_radius() const;
+
 	const std::vector<std::vector<std::vector<bool>>>& GetMask() const override;
 	double GetPixelSize() const override;
 };
