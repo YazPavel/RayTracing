@@ -79,7 +79,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 	void PhotonicBall::SetResolution(const int& resolution_) {
 		resolution = resolution_;
 		mesh_x = GenFunc::linspace(-radiusPB * 1.00, radiusPB*1.00, resolution_);
-		delta = mesh_x[1] - mesh_x[0];
+		voxelSize = mesh_x[1] - mesh_x[0];
 	}
 
 	PhotonicBall::PhotonicBall(const string& structure_file, const double& NPradius) {
@@ -222,8 +222,8 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		//Mask.resize(resolution, std::vector<std::vector<bool>>(resolution, std::vector<bool>(resolution, false)));
 		Eigen::Vector3d v(1,1,1);
 		for (const auto& NP : coordlist) {
-			Eigen::Vector3d maxcoord = (NP.coord + (NP.radius-mesh_x[0])*v)/delta;
-			Eigen::Vector3d mincoord = (NP.coord - (NP.radius + mesh_x[0])*v)/delta;
+			Eigen::Vector3d maxcoord = (NP.coord + (NP.radius-mesh_x[0])*v)/voxelSize;
+			Eigen::Vector3d mincoord = (NP.coord - (NP.radius + mesh_x[0])*v)/voxelSize;
 			std::vector<int> maxID(3);
 			std::vector<int> minID(3);
 			for (int i = 0; i < 3; i++) {
@@ -256,7 +256,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		return Mask;
 	}
 	double PhotonicBall::GetPixelSize() const{
-		return delta;
+		return voxelSize;
 	}
 	double PhotonicBall::GetFeret_radius() const {
 		return radiusPB;

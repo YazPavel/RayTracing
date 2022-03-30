@@ -31,7 +31,7 @@ private:
 	int resolution = 1;
 	std::vector<std::vector<std::vector<bool>>> Mask;
 	std::vector<double> mesh_x;
-	double delta;
+	double voxelSize;
 	void calculateMean();
 	void normalise();
 	void rescale(const double& scale);

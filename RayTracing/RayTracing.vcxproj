@@ -154,7 +154,7 @@
   <ItemGroup>
     <ClCompile Include="GeneralFun.cpp" />
     <ClCompile Include="PhotonicBall.cpp" />
-    <ClCompile Include="RayTracing.cpp" />
+    <ClCompile Include="MainRayTracing.cpp" />
     <ClCompile Include="Params.cpp" />
     <ClCompile Include="PhaseCalculationFullRTr.cpp" />
     <ClCompile Include="Result.cpp" />

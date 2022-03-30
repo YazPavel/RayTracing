@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RayTracing.cpp">
+    <ClCompile Include="MainRayTracing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Params.cpp">
