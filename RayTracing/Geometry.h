@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 class Geometry {
 public:
 	virtual const std::vector<std::vector<std::vector<bool>>>& GetMask() const = 0;
