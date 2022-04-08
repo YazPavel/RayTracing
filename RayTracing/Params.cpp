@@ -1,23 +1,36 @@
 #include "Params.h"
 #include "GeneralFun.h"
+#include <string>
+#include <sstream>
+
+template <typename T>
+void Params::readline(std::ifstream& input, T& var) {
+	std::string line;
+	std::getline(input, line);
+	std::stringstream ss;
+	ss.str(line);
+	ss >>  var;
+}
 
 
 	Params::Params() {
 		const double pi = 3.14159265358979323846;
 		std::ifstream input("parameters.txt");
-		std::string line;
+		//std::string line;
 		if (input) {
-			input >> structure_file;
-			input >> np >> line;
-			input >> nm >> line;
-			input >> wavelength >> line;
-			input >> lengthscale >> line;
-			input >> min_angle >> line;
-			input >> max_angle >> line;
-			input >> rotationN >> line;
-			input >> resolution >> line;
-			input >> angleN >> line;
+			readline(input, structure_file);
+			readline(input, np);
+			readline(input, nm);
+			readline(input, wavelength);
+			readline(input, lengthscale);
+			readline(input, min_angle);
+			readline(input, max_angle);
+			readline(input, rotationN);
+			readline(input, resolution);
+			readline(input, angleN);
+
 		}
+		input.close();
 		wavevector_diel = 2 * pi / wavelength * np;
 		wavevector_med = 2 * pi / wavelength * nm;
 		scatangle = GenFunc::linspace(0, pi, angleN);

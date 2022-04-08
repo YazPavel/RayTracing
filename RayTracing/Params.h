@@ -22,6 +22,8 @@ private:
 	double wavevector_diel;
 	double wavevector_med;
 	double Rayleigh_prefactor;
+	template <typename T>
+	void readline(std::ifstream& input, T& var);
 public:
 	Params();
 	std::string GetStructureFile() const;
