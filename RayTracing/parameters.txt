@@ -2,9 +2,9 @@ mstm_pos2.dat
 1.59 dielectricRI 
 1.33 mediaRI
 800 wavelength_in_nm
-174 Lengtscale_in_nm(for_NP_put_radius)
+174 Lengtscale in nm (for PB put NP radius: for Network - rod length)
 150 minimum_angle_for_backscattering
 180 maximum_angle_for_backscattering
-200 rotationN
+10 rotationN
 300 resolution
 181 angleN
