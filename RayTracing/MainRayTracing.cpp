@@ -18,7 +18,7 @@ int main()
 	PhotonicBall Geom(parameters);
 
 	//Prepare Ray-Tracing Physics
-	PhaseCalculationFullRTr calculRT(parameters, Geom.GetPixelSize());
+	PhaseCalculationFullRTr calculRT(parameters, Geom);
 
 	//Prepare results
 	Result results(parameters.GetScatangle());
