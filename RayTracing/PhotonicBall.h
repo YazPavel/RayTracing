@@ -28,26 +28,26 @@ private:
 	double radiusPB = 0;
 	Eigen::Vector3d PB_center;
 	double radiusNP_Mean = 0;
-	int resolution = 1;
 	std::vector<std::vector<std::vector<bool>>> Mask;
 	std::vector<double> mesh_x;
 	double voxelSize;
+public:
+	PhotonicBall(const Params& parameters);
+	void random_rotation();
+	double GetFeret_radius() const;
+	const std::vector<std::vector<std::vector<bool>>>& GetMask() const override;
+	double GetPixelSize() const override;
+
+	PhotonicBall(const std::string& structure_file, const double& NPradius);
+	PhotonicBall(const std::string& structure_file, const double& NPradius, const int& resolution_);
+	void random_rotation(const int& resolution_);	
+private:
 	void calculateMean();
 	void normalise();
 	void rescale(const double& scale);
 	double Feret_radius();
 	void random_rotation_no_mask();
 	bool check_pixel_insidePB(const Eigen::Vector3d& point);
-	void createMask(const int& resolution_);
 	void createMask_fast(const int& resolution_);
-	void SetResolution(const int& resolution_);
-public:
-	PhotonicBall(const Params& parameters);
-	PhotonicBall(const std::string& structure_file, const double& NPradius);
-	PhotonicBall(const std::string& structure_file, const double& NPradius, const int& resolution_);
-	void random_rotation(const int& resolution_);
-	void random_rotation();
-	double GetFeret_radius() const;
-	const std::vector<std::vector<std::vector<bool>>>& GetMask() const override;
-	double GetPixelSize() const override;
+	void SetResolution(int resolution_) override;
 };

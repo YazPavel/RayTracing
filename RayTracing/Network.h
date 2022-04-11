@@ -30,9 +30,9 @@ public:
 private:
     void normalise(); // move network to 0 and put <L>=1
     void rescale(double scale); //  put <L>=Ltarget
-    void createMask(const int& resolution_);
-    void SetResolution(const int& resolution_);
-    void calculateMean();
+    void createMask();
+    void SetResolution(int resolution_) override;
+    void CalculateMean();
 };
 
 

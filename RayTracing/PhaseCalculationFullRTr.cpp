@@ -76,15 +76,15 @@ vector<complex<double>> PhaseCalculationFullRTr::CalculateFarField(const Params&
 	}
 
 PhaseCalculationFullRTr::PhaseCalculationFullRTr(const Params& parameters, const Geometry& Geom) {
-		res_x = Geom.GetMask().size();
-		res_y = Geom.GetMask()[0].size();
-		res_z = Geom.GetMask()[0][0].size();
+		res_x = Geom.GetResolutionX();
+		res_y = Geom.GetResolutionY();
+		res_z = Geom.GetResolutionZ();
 		CalculateOutputField(parameters, Geom.GetPixelSize());
 	}
 PhaseCalculationFullRTr::PhaseCalculationFullRTr(const Params& parameters, const vector<vector<vector<bool>>>& Mask, const double& delta) {
-		res_x = Mask.size();
-		res_y = Mask[0].size();
-		res_z = Mask[0][0].size();
+		res_x = static_cast<int>(Mask.size());
+		res_y = static_cast<int>(Mask[0].size());
+		res_z = static_cast<int>(Mask[0][0].size());
 		CalculateOutputField(parameters, delta);
 	}
 	
