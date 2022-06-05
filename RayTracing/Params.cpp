@@ -53,7 +53,7 @@ int Params::Get_rotationN() const { return rotationN; };
 		using std::endl;
 		output << "dielctric refractive index = " << param.np << endl;
 		output << "media refractive index = " << param.nm << endl;
-		output << "wavelength = " << param.wavelength << endl;
-		output << "lengthscale = " << param.lengthscale << endl;
+		output << "wavelength = " << param.wavelength << " nm"  << endl;
+		output << "lengthscale = " << param.lengthscale << " nm" << endl;
 		return output;
 }

@@ -140,7 +140,6 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		normalise(); // move particle to 0 and put <R_NP>=1
 		rescale(parameters.GetLengthScale()); //  put <R_NP>=Rtarget
 		radiusPB = Feret_radius();
-		SetResolution(parameters.GetResolution());
 		createMask_fast(parameters.GetResolution());
 	}
 

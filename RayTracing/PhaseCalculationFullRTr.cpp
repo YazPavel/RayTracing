@@ -1,6 +1,7 @@
 #include<vector>
 #include "PhaseCalculationFullRTr.h"
 #include "Eigen/Eigen/Dense"
+
 using namespace Eigen;
 using namespace std;
 
@@ -46,13 +47,13 @@ void PhaseCalculationFullRTr::CalculateOutputField(const Params& parameters, con
 
 vector<complex<double>> PhaseCalculationFullRTr::CalculateFarField(const Params& parameters, const vector<vector<vector<bool>>>& Mask, const double&  delta) {
 		vector<complex<double>> scat_amplitude_angle(parameters.Get_angleN());
-		vector<vector<complex<double>>> phase_z_integrated(parameters.GetResolution(), vector<complex<double>>(parameters.GetResolution(), 0));
+		vector<vector<complex<double>>> phase_x_integrated(parameters.GetResolution(), vector<complex<double>>(parameters.GetResolution(), 0));
 		
 		for (int i = 0; i < res_x; i++) {
 			for (int j = 0; j < res_y; j++) {
 				for (int k = 0; k < res_z; k++) {
 					if (Mask[i][j][k]) {
-						phase_z_integrated[j][k] += phase_tot[i][j][k];
+						phase_x_integrated[j][k] += phase_tot[i][j][k];
 					}
 				}
 			}
@@ -66,7 +67,7 @@ vector<complex<double>> PhaseCalculationFullRTr::CalculateFarField(const Params&
 			
 				for (int j = 0; j < res_y; j++) {
 					for (int k = 0; k < res_z; k++) {
-						scat_amplitude += phase_z_integrated[j][k] * dict_angle_vs_phase_output[count][j][k];						
+						scat_amplitude += phase_x_integrated[j][k] * dict_angle_vs_phase_output[count][j][k];						
 					}
 				}
 			

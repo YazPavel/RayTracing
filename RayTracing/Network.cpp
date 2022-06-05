@@ -73,7 +73,8 @@ void Network::rescale(double scale) {
 	length_mean *= scale;
 	network_center *= scale;
 };
-void Network::createMask() {
+void Network::createMask() //TBD
+{
 
 };
 void Network::SetResolution(int resolution_) {
@@ -102,7 +103,5 @@ void Network::SetResolution(int resolution_) {
 		res_x = int(coord[0] / voxel_size)+1;
 		res_y = int(coord[1] / voxel_size)+1;
 		res_z = int(coord[2] / voxel_size)+1;
-		
 };
 	
-

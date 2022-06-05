@@ -1,10 +1,8 @@
 #include <iostream>
-
 #include "Params.h"
 #include "PhotonicBall.h"
 #include "PhaseCalculationFullRTr.h"
 #include "Result.h"
-
 
 
 
