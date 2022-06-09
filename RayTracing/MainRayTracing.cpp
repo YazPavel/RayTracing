@@ -1,10 +1,8 @@
 #include <iostream>
-
 #include "Params.h"
 #include "PhotonicBall.h"
 #include "PhaseCalculationFullRTr.h"
 #include "Result.h"
-
 
 
 
@@ -18,7 +16,7 @@ int main()
 	PhotonicBall Geom(parameters);
 
 	//Prepare Ray-Tracing Physics
-	PhaseCalculationFullRTr calculRT(parameters, Geom.GetPixelSize());
+	PhaseCalculationFullRTr calculRT(parameters, Geom);
 
 	//Prepare results
 	Result results(parameters.GetScatangle());

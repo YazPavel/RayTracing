@@ -76,9 +76,11 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		return res + radiusNP_Mean;
 	}
 
-	void PhotonicBall::SetResolution(const int& resolution_) {
-		resolution = resolution_;
-		mesh_x = GenFunc::linspace(-radiusPB * 1.00, radiusPB*1.00, resolution_);
+	void PhotonicBall::SetResolution(int resolution_) {
+		res_x = resolution_;
+		res_y = resolution_;
+		res_z = resolution_;
+		mesh_x = GenFunc::linspace(-radiusPB * 1.00, radiusPB*1.00, res_x);
 		voxelSize = mesh_x[1] - mesh_x[0];
 	}
 
@@ -138,7 +140,6 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		normalise(); // move particle to 0 and put <R_NP>=1
 		rescale(parameters.GetLengthScale()); //  put <R_NP>=Rtarget
 		radiusPB = Feret_radius();
-		SetResolution(parameters.GetResolution());
 		createMask_fast(parameters.GetResolution());
 	}
 
@@ -186,7 +187,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		for (NanoParticle& NP : coordlist) {
 			NP.coord = rot_m * NP.coord;
 		}
-		createMask_fast(resolution);
+		createMask_fast(res_x);
 	}
 
 
@@ -199,27 +200,10 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 		return false;
 	}
 
-	void PhotonicBall::createMask(const int& resolution_) {
-		SetResolution(resolution_);
-		std::vector<std::vector<std::vector<bool>>> Mask_(resolution, std::vector<std::vector<bool>>(resolution, std::vector<bool>(resolution, false)));
-		for (int i = 0; i < resolution; i++) {
-			for (int j = 0; j < resolution; j++) {
-				for (int k = 0; k < resolution; k++) {
-					Eigen::Vector3d point;
-					point << mesh_x[i], mesh_x[j], mesh_x[k];
-					if (check_pixel_insidePB(point)) {
-						Mask_[i][j][k] = true;
-					}
-				}
-			}
-		}
-		Mask = Mask_;
-	}
-
 	void PhotonicBall::createMask_fast(const int& resolution_) {
 		SetResolution(resolution_);
-		std::vector<std::vector<std::vector<bool>>> Mask_(resolution, std::vector<std::vector<bool>>(resolution, std::vector<bool>(resolution, false)));
-		//Mask.resize(resolution, std::vector<std::vector<bool>>(resolution, std::vector<bool>(resolution, false)));
+		std::vector<std::vector<std::vector<bool>>> Mask_(res_x, std::vector<std::vector<bool>>(res_x, std::vector<bool>(res_x, false)));
+		
 		Eigen::Vector3d v(1,1,1);
 		for (const auto& NP : coordlist) {
 			Eigen::Vector3d maxcoord = (NP.coord + (NP.radius-mesh_x[0])*v)/voxelSize;
@@ -228,7 +212,7 @@ ostream&  operator<<(ostream& output, NanoParticle& NP) {
 			std::vector<int> minID(3);
 			for (int i = 0; i < 3; i++) {
 				maxID[i] = ((int)maxcoord[i]) + 1;
-				if (maxID[i] > resolution-1) { maxID[i] = resolution-1; }
+				if (maxID[i] > res_x -1) { maxID[i] = res_x -1; }
 			}
 			for (int i = 0; i < 3; i++) {
 				minID[i] = ((int)mincoord[i]) - 1;
