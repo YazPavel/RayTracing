@@ -71,6 +71,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)RayTracing\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;Result.obj;PhaseCalculationFullRTr.obj;Geometry.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -87,7 +89,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\YazhgurP\source\repos\RayTracing\RayTracing\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;Result.obj;PhaseCalculationFullRTr.obj;Geometry.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,6 +106,8 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>$(SolutionDir)RayTracing\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;Result.obj;PhaseCalculationFullRTr.obj;Geometry.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,7 +125,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <AdditionalLibraryDirectories>C:\Users\YazhgurP\source\repos\RayTracing\RayTracing\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GeneralFun.obj;PhotonicBall.obj;Params.obj;Result.obj;PhaseCalculationFullRTr.obj;Geometry.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
