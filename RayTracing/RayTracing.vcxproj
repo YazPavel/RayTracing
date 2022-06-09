@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GeneralFun.cpp" />
+    <ClCompile Include="Network.cpp" />
     <ClCompile Include="PhotonicBall.cpp" />
     <ClCompile Include="MainRayTracing.cpp" />
     <ClCompile Include="Params.cpp" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="GeneralFun.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="Network.h" />
     <ClInclude Include="Params.h" />
     <ClInclude Include="PhaseCalculationFullRTr.h" />
     <ClInclude Include="PhotonicBall.h" />
