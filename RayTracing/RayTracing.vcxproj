@@ -169,6 +169,7 @@
     <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Eigen\Eigen\Dense" />
     <None Include="mstm_pos.dat" />
   </ItemGroup>
   <ItemGroup>
